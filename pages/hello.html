@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change background tool</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: #f0f8ff; /* Light blue background */
+            color: #003366; /* Navy blue text */
+        }
+
+        h1, h2 {
+            color: #003366;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 26px;
+        }
+
+        h2 {
+            font-size: 22px;
+            margin-top: 30px;
+        }
+
+        .checkbox-label {
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .checkbox-label input {
+            margin-right: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .separator {
+            margin: 20px 0;
+            border-bottom: 2px solid #003366;
+        }
+
+        .input-field {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-field input,
+        .input-field select {
+            padding: 10px;
+            border: 2px solid #003366;
+            border-radius: 50px; /* Pill shape */
+            font-size: 16px;
+            color: #003366;
+            width: 100%;
+            max-width: 300px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .input-field select {
+            appearance: none;
+            background: white;
+        }
+
+        .submit-btn {
+            background-color: #003366; /* Navy blue */
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50px; /* Pill shape */
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .submit-btn:hover {
+            background-color: #00509E; /* Lighter navy blue */
+        }
+
+        /* Circle checkbox */
+        .checkbox-label input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #f0f8ff;
+            border: 2px solid #003366;
+            appearance: none;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .checkbox-label input[type="checkbox"]:checked {
+            background-color: #003366;
+        }
+
+        .checkbox-label input[type="checkbox"]:checked::before {
+            content: '✓';
+            color: white;
+            font-size: 16px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .checkbox-label input[type="checkbox"]:checked {
+            background-color: #003366;
+            color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>Change background tool</h1>
+
+
+<div class="checkbox-label">
+    <input type="checkbox" id="specific-pages">
+    <label for="specific-pages">Change specific pages?</label>
+</div>
+
+<div id="first-input" class="input-field hidden">
+    <label for="first-page" >First page</label>
+
+    <input type="text" id="first-page" style="width: 60px;display: inline-block;">
+</div>
+
+<div id="last-input" class="input-field hidden" >
+    <label for="last-page">Last page</label>
+    <input type="text" id="last-page" style="width: 60px;display: inline-block;" >
+</div>
+<div class="separator"></div>
+
+<div id="new-color-input" class="input-field">
+    <label for="new-color">Enter New Color:</label>
+    <input type="text" id="new-color" placeholder="#ff0000" >
+</div>
+
+<br>
+<button class="submit-btn" id="submit-btn" onclick="google.script.run.changeBackground(readcontent())">Change!</button>
+
+<script>
+    document.getElementById('specific-pages').addEventListener('change', function () {
+        document.getElementById('first-input').classList.toggle('hidden', !this.checked);
+        document.getElementById('last-input').classList.toggle('hidden', !this.checked);
+    });
+
+    function readcontent(){
+        const specificPages = document.getElementById('specific-pages').checked;
+
+        const firstPage = document.getElementById('first-page');
+        const lastPage = document.getElementById('last-page');
+        const newColor = document.getElementById('new-color');
+        // Check if checkboxes are checked and collect data
+        return {
+            firstPage: specificPages? firstPage.value: "" ,
+            lastPage: specificPages ? lastPage.value : "",
+            newColor: newColor.value,
+        };
+    }
+
+
+</script>
+
+</body>
+</html>
