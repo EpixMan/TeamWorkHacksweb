@@ -6,18 +6,19 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Next.js Starter!</title>
+        <title>TeamWork Hacks</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
+        <main>
+            <Header title="TeamWork Hacks site!"/>
+            <p className="description">
+                For <a href="/Terms-conditions.html" target="_blank" rel="noopener noreferrer">Terms and
+                Conditions</a> click here.<br/>
+                For <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a> click here.
+            </p></main>
 
-      <Footer />
+        <Footer/>
     </div>
   )
 }
