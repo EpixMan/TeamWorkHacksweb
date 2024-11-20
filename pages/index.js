@@ -7,13 +7,14 @@ export default function Home() {
         <div className="container">
             <Head>
                 <title>TeamWork Hacks</title>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/teamworkhacks-logo.png" />
             </Head>
 
             <Header title="TeamWork Hacks - Google Add-on" />
 
             <main>
                 <section className="hero">
+                    <img src="/teamworkhacks-logo.png" alt="TeamWorkHacks"/>
                     <h1 className="hero-title">Streamline Your Workflow with TeamWorkHacks</h1>
                     <p className="hero-subtitle">
                         Empowering students to edit Google services with speed and precision.
