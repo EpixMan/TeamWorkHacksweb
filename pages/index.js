@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-
+import Image from 'next/image'
 export default function Home() {
     return (
         <div className="container">
@@ -14,7 +14,15 @@ export default function Home() {
 
             <main>
                 <section className="hero">
-                    <img src="/teamworkhacks-logo.png" alt="TeamWorkHacks"/>
+                    <div className="hero-image">
+                        <Image
+                            src="/teamworkhacks-logo.png"
+                            alt="TeamWorkHacks"
+                            width={561}
+                            height={139}
+                            priority
+                        />
+                    </div>
                     <h1 className="hero-title">Streamline Your Workflow with TeamWorkHacks</h1>
                     <p className="hero-subtitle">
                         Empowering students to edit Google services with speed and precision.
